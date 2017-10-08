@@ -11,10 +11,25 @@
 	],
 	"author": {
 		"name": "Jaden Giordano",
-		"email": "thejadenjack@gmail.com"
+		"email": "thejadenjack@gmail.com",
+		"url": "http://forester.io"
 	},
-	"contributors": [],
-	"bugs": {},
+	"license": {
+		"type": "GPL-3.0",
+		"url": "https://www.gnu.org/licenses/gpl-3.0.en.html"
+	},
+	"contributors": [{
+		"name": "Jaden Giordano",
+		"email": "thejadenjack@gmail.com",
+		"url": "http://forester.io"
+	}],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Jaden-Giordano/progress-tracker.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Jaden-Giordano/progress-tracker/issues"
+	},
 	"directories": {
 		"lib": "src",
 		"test": "test/"
@@ -24,11 +39,11 @@
 		"yarn": ">= 0.18.0"
 	},
 	"scripts": {
-		"test": "npm run eslint-fix && npm run mocha",
-		"eslint": "eslint src/. test/. --config .eslintrc.json",
-		"eslint-fix": "eslint src/. test/. --config .eslintrc.json --fix",
+		"test": "npm run eslint && npm run mocha",
+		"eslint-nofix": "eslint src/. test/. --config .eslintrc.json",
+		"eslint": "eslint src/. test/. --config .eslintrc.json --fix",
 		"start": "node src/",
-		"mocha": "mocha test/ --recursive"
+		"mocha": "NODE_ENV=test mocha test/ --recursive"
 	},
 	"dependencies": {
 		"body-parser": "^1.18.2",
@@ -45,6 +60,7 @@
 		"winston": "^2.4.0"
 	},
 	"devDependencies": {
+		"chokidar": "^1.7.0",
 		"eslint": "^4.8.0",
 		"mocha": "^4.0.1",
 		"request": "^2.83.0",
