@@ -62,4 +62,4 @@ __0.0.1__
 
 Copyright (c) 2017
 
-Licensed under the [GNU General Public License](LICENSE).
+Licensed under the [GPL-3.0](LICENSE).

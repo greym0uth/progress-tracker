@@ -11,10 +11,25 @@
 	],
 	"author": {
 		"name": "Jaden Giordano",
-		"email": "thejadenjack@gmail.com"
+		"email": "thejadenjack@gmail.com",
+		"url": "http://forester.io"
 	},
-	"contributors": [],
-	"bugs": {},
+	"license": {
+		"type": "GPL-3.0",
+		"url": "https://www.gnu.org/licenses/gpl-3.0.en.html"
+	},
+	"contributors": [{
+		"name": "Jaden Giordano",
+		"email": "thejadenjack@gmail.com",
+		"url": "http://forester.io"
+	}],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Jaden-Giordano/progress-tracker.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Jaden-Giordano/progress-tracker/issues"
+	},
 	"directories": {
 		"lib": "src",
 		"test": "test/"
