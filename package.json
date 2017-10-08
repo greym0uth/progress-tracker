@@ -24,9 +24,9 @@
 		"yarn": ">= 0.18.0"
 	},
 	"scripts": {
-		"test": "npm run eslint-fix && npm run mocha",
-		"eslint": "eslint src/. test/. --config .eslintrc.json",
-		"eslint-fix": "eslint src/. test/. --config .eslintrc.json --fix",
+		"test": "npm run eslint && npm run mocha",
+		"eslint-nofix": "eslint src/. test/. --config .eslintrc.json",
+		"eslint": "eslint src/. test/. --config .eslintrc.json --fix",
 		"start": "node src/",
 		"mocha": "mocha test/ --recursive"
 	},
