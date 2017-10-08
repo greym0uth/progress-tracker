@@ -4,6 +4,7 @@ WORKDIR /container
 
 COPY package.json .
 RUN npm install
+RUN npm run web-build
 COPY . .
 
 EXPOSE 8080
