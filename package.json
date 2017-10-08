@@ -1,0 +1,53 @@
+{
+	"name": "progress-tracker",
+	"description": "A progress tracker for managing professional players.",
+	"version": "0.0.1",
+	"homepage": "pt.forester.io",
+	"main": "src",
+	"keywords": [
+		"feathers",
+		"esports",
+		"management"
+	],
+	"author": {
+		"name": "Jaden Giordano",
+		"email": "thejadenjack@gmail.com"
+	},
+	"contributors": [],
+	"bugs": {},
+	"directories": {
+		"lib": "src",
+		"test": "test/"
+	},
+	"engines": {
+		"node": ">= 6.0.0",
+		"yarn": ">= 0.18.0"
+	},
+	"scripts": {
+		"test": "npm run eslint-fix && npm run mocha",
+		"eslint": "eslint src/. test/. --config .eslintrc.json",
+		"eslint-fix": "eslint src/. test/. --config .eslintrc.json --fix",
+		"start": "node src/",
+		"mocha": "mocha test/ --recursive"
+	},
+	"dependencies": {
+		"body-parser": "^1.18.2",
+		"compression": "^1.7.1",
+		"cors": "^2.8.4",
+		"feathers": "^2.2.2",
+		"feathers-configuration": "^0.4.1",
+		"feathers-errors": "^2.9.2",
+		"feathers-hooks": "^2.1.0",
+		"feathers-hooks-common": "^3.7.3",
+		"feathers-rest": "^1.8.0",
+		"helmet": "^3.8.2",
+		"serve-favicon": "^2.4.5",
+		"winston": "^2.4.0"
+	},
+	"devDependencies": {
+		"eslint": "^4.8.0",
+		"mocha": "^4.0.1",
+		"request": "^2.83.0",
+		"request-promise": "^4.2.2"
+	}
+}
