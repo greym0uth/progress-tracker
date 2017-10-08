@@ -1,5 +1,7 @@
 # progress-tracker
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Jaden-Giordano/progress-tracker.svg)](https://greenkeeper.io/)
+
 > 
 
 ## About
