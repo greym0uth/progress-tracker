@@ -18,6 +18,7 @@ jobs:
 
     steps:
       - checkout
+      - run: yarn web-build
 
       # Download and cache dependencies
       - restore_cache:
