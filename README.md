@@ -1,7 +1,8 @@
 # progress-tracker
 
-[![CircleCI](https://circleci.com/gh/Jaden-Giordano/progress-tracker/tree/master.svg?style=svg)](https://circleci.com/gh/Jaden-Giordano/progress-tracker/tree/master)
 [![Greenkeeper badge](https://badges.greenkeeper.io/Jaden-Giordano/progress-tracker.svg)](https://greenkeeper.io/)
+
+[![CircleCI](https://circleci.com/gh/Jaden-Giordano/progress-tracker/tree/master.svg?style=svg)](https://circleci.com/gh/Jaden-Giordano/progress-tracker/tree/master)
 
 > A progress tracker for managing professional players.
 
