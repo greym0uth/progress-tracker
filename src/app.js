@@ -5,11 +5,12 @@ const cors = require('cors');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 
+const { info } = require('winston');
+
 const feathers = require('feathers');
 const configuration = require('feathers-configuration');
 const hooks = require('feathers-hooks');
 const rest = require('feathers-rest');
-
 
 const handler = require('feathers-errors/handler');
 const notFound = require('feathers-errors/not-found');
@@ -46,5 +47,20 @@ app.use(notFound());
 app.use(handler());
 
 app.hooks(appHooks);
+
+// Watch files in /src/ and update them on change (doesn't restart server).
+if (process.env.NODE_ENV !== 'production') {
+	const chokidar = require('chokidar');
+	const watcher = chokidar.watch('./src');
+
+	watcher.on('ready', () => {
+		watcher.on('all', () => {
+			info('Clearing /src/ module cache from server.');
+			Object.keys(require.cache).forEach((id) => {
+				if (/[\/\\]src[\/\\]/.test(id)) delete require.cache[id];
+			});
+		});
+	});
+}
 
 module.exports = app;
