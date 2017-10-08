@@ -1,8 +1,13 @@
 FROM node:latest
 
 WORKDIR /container
-ADD . /container
+
+COPY package.json .
+RUN npm install
+COPY . .
 
 EXPOSE 8080
 
-CMD ['npm', 'start']
+ENV NODE_ENV production
+
+CMD [ "npm", "start" ]
