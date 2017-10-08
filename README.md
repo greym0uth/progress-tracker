@@ -48,16 +48,6 @@ $ feathers help                           # Show all commands
 Looking to contribute? Check out the [Contribution Guide](CONTRIBUTING.md). 
 Or, for more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
 
-## Changelog
-
-__0.0.1__
-
-- Initial development release
-	- CI setup
-	- REST architecture
-	- Docker configuration
-	- Production configuration
-
 ## License
 
 Copyright (c) 2017
