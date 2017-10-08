@@ -1,4 +1,4 @@
-# progress-tracker
+# Progress Tracker
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/Jaden-Giordano/progress-tracker.svg)](https://greenkeeper.io/)
 [![CircleCI](https://circleci.com/gh/Jaden-Giordano/progress-tracker/tree/master.svg?style=svg)](https://circleci.com/gh/Jaden-Giordano/progress-tracker/tree/master)
@@ -7,7 +7,7 @@
 
 ## About
 
-This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
+This project contains tools for professional esports management. This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
 
 ## Getting Started
 
@@ -45,16 +45,21 @@ $ feathers help                           # Show all commands
 
 ## Help
 
-For more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
+Looking to contribute? Check out the [Contribution Guide](CONTRIBUTING.md). 
+Or, for more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
 
 ## Changelog
 
-__0.1.0__
+__0.0.1__
 
-- Initial release
+- Initial development release
+	- CI setup
+	- REST architecture
+	- Docker configuration
+	- Production configuration
 
 ## License
 
-Copyright (c) 2016
+Copyright (c) 2017
 
-Licensed under the [MIT license](LICENSE).
+Licensed under the [GNU General Public License](LICENSE).
