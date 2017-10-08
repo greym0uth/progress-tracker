@@ -2,16 +2,20 @@ import Vue from '../node_modules/vue/dist/vue.esm';
 import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
 
-// Require static files to be bundled.
-require('../node_modules/vuetify/dist/vuetify.min.css');
+import routes from './routes';
+import AppNavComponent from './components/app-nav.vue';
 
 Vue.use(Vuetify);
+Vue.use(VueRouter);
 
 const router = new VueRouter({
-	routes: require('./routes')
+	routes
 });
 
 const app = new Vue({
 	el: '#app',
+	components: {
+		'app-nav': AppNavComponent
+	},
 	router
 });

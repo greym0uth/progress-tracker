@@ -1,4 +1,6 @@
+import Home from './routes/home.vue';
+
 module.exports = [{
 	path: '/',
-	component: require('./routes/home.vue')
+	component: Home
 }];
