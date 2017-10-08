@@ -49,16 +49,16 @@ app.use(handler());
 app.hooks(appHooks);
 
 // Watch files in /src/ and update them on change (doesn't restart server).
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
 	const chokidar = require('chokidar');
 	const watcher = chokidar.watch('./src');
 
 	watcher.on('ready', () => {
-		info("Watching files in /src/")
+		info('Watching files in /src/');
 		watcher.on('all', () => {
 			info('Clearing /src/ module cache from server.');
 			Object.keys(require.cache).forEach((id) => {
-				if (/[\/\\]src[\/\\]/.test(id)) delete require.cache[id];
+				if (/[/\\]src[/\\]/.test(id)) delete require.cache[id];
 			});
 		});
 	});

@@ -43,7 +43,7 @@
 		"eslint-nofix": "eslint src/. test/. --config .eslintrc.json",
 		"eslint": "eslint src/. test/. --config .eslintrc.json --fix",
 		"start": "node src/",
-		"mocha": "mocha test/ --recursive"
+		"mocha": "NODE_ENV=test mocha test/ --recursive"
 	},
 	"dependencies": {
 		"body-parser": "^1.18.2",
