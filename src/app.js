@@ -54,6 +54,7 @@ if (process.env.NODE_ENV !== 'production') {
 	const watcher = chokidar.watch('./src');
 
 	watcher.on('ready', () => {
+		info("Watching files in /src/")
 		watcher.on('all', () => {
 			info('Clearing /src/ module cache from server.');
 			Object.keys(require.cache).forEach((id) => {
