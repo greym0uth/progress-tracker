@@ -3,6 +3,7 @@ import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
 
 import routes from './routes';
+
 import AppNavComponent from './components/app-nav.vue';
 
 Vue.use(Vuetify);

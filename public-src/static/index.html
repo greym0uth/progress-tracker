@@ -11,11 +11,17 @@
 
 <body>
 	<div id="app">
-		<app-nav></app-nav>
-		<div class="content">
-			<app-sidebar></app-sidebar>
-			<router-view></router-view>
-		</div>
+		<v-app>
+			<main>
+				<v-content>
+					<app-nav></app-nav>
+					<div class="content">
+						<!--<app-sidebar></app-sidebar>-->
+						<router-view></router-view>
+					</div>
+				</v-content>
+			</main>
+		</v-app>
 	</div>
 
 	<script src="bundle.js"></script>
