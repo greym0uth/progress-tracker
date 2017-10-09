@@ -29,7 +29,7 @@
 
 <script>
 module.exports =  {
-	data() {
+	data: function() {
 		return {
 			dialog: true
 		};

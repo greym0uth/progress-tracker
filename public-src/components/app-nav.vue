@@ -10,7 +10,9 @@
 import ProfileComponent from './navigation/profile.vue';
 
 export default {
-	data: () => ({}),
+	data: function() {
+		return {};
+	},
 	components: {
 		'profile': ProfileComponent
 	}
