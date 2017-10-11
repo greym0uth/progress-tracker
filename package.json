@@ -50,6 +50,7 @@
 		"web-devel": "WEBPACK_ENV=development webpack --progress --colors --watch"
 	},
 	"dependencies": {
+		"axios": "^0.16.2",
 		"body-parser": "^1.18.2",
 		"compression": "^1.7.1",
 		"cors": "^2.8.4",
