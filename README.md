@@ -2,6 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/Jaden-Giordano/progress-tracker.svg)](https://greenkeeper.io/)
 [![CircleCI](https://circleci.com/gh/Jaden-Giordano/progress-tracker/tree/master.svg?style=svg)](https://circleci.com/gh/Jaden-Giordano/progress-tracker/tree/master)
+[![Known Vulnerabilities](https://snyk.io/test/github/jaden-giordano/progress-tracker/badge.svg)](https://snyk.io/test/github/jaden-giordano/progress-tracker)
 
 > A progress tracker for managing professional players.
 
