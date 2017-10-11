@@ -2,6 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/Jaden-Giordano/progress-tracker.svg)](https://greenkeeper.io/)
 [![CircleCI](https://circleci.com/gh/Jaden-Giordano/progress-tracker/tree/master.svg?style=svg)](https://circleci.com/gh/Jaden-Giordano/progress-tracker/tree/master)
+[![Known Vulnerabilities](https://snyk.io/test/github/jaden-giordano/progress-tracker/badge.svg)](https://snyk.io/test/github/jaden-giordano/progress-tracker)
 
 > A progress tracker for managing professional players.
 
@@ -47,16 +48,6 @@ $ feathers help                           # Show all commands
 
 Looking to contribute? Check out the [Contribution Guide](CONTRIBUTING.md). 
 Or, for more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
-
-## Changelog
-
-__0.0.1__
-
-- Initial development release
-	- CI setup
-	- REST architecture
-	- Docker configuration
-	- Production configuration
 
 ## License
 
