@@ -1,5 +1,5 @@
 <template>
-	<v-list-tile @click.native.stop="dialog = true" @click="">
+	<v-list-tile @click.native.stop="openLogin()" @click="">
 		<v-list-tile-content>
 			<v-list-tile-title>
 				<v-layout row justify-space-between>
@@ -16,17 +16,31 @@
 </template>
 
 <script>
+import auth from '../../../utils/auth';
+
 import LoginPanelComponent from '../../panels/login-panel.vue';
 
 export default {
+	model: {
+		event: 'update'
+	},
 	data: function() {
 		return {
 			dialog: false
 		};
 	},
 	methods: {
+		openLogin: function() {
+			auth.validate().then(res => {
+				if (res)
+					this.$emit('update');
+				else
+					this.dialog = true;
+			});
+		},
 		closeDialog: function() {
 			this.dialog = false;
+			this.$emit('update');
 		}
 	},
 	components: {

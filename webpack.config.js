@@ -14,7 +14,14 @@ if (process.env.WEBPACK_ENV === 'production') {
 		}
 	}));
 	plugins.push(new UglifyJsPlugin({
-		minimize: true
+		minimize: true,
+		uglifyOptions: {
+			ecma: 7,
+			output: {
+				comments: false,
+				beautify: false
+			}
+		}
 	}));
 }
 
@@ -51,10 +58,7 @@ module.exports = {
 		}, {
 			test: /\.js$/,
 			loader: 'babel-loader',
-			exclude: /node_modules/,
-			query: {
-				presets: ['es2015']
-			}
+			exclude: /node_modules/
 		}, {
 			test: /\.vue$/,
 			loader: 'vue-loader'

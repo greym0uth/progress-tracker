@@ -5,12 +5,11 @@ const cors = require('cors');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 
-const { info } = require('winston');
-
 const feathers = require('feathers');
 const configuration = require('feathers-configuration');
 const hooks = require('feathers-hooks');
 const rest = require('feathers-rest');
+const socketio = require('feathers-socketio');
 
 const handler = require('feathers-errors/handler');
 const notFound = require('feathers-errors/not-found');
@@ -18,6 +17,10 @@ const notFound = require('feathers-errors/not-found');
 const middleware = require('./middleware');
 const services = require('./services');
 const appHooks = require('./app.hooks');
+
+const authentication = require('./authentication');
+
+const mongoose = require('./mongoose');
 
 const app = feathers();
 
@@ -28,18 +31,29 @@ app.use(cors());
 app.use(helmet());
 app.use(compress());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
 app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
 // Host the public folder
 app.use('/', feathers.static(app.get('public')));
 
 // Set up Plugins and providers
 app.configure(hooks());
+app.configure(mongoose);
 app.configure(rest());
-
+app.configure(socketio({ wsEngine: 'uws' }, io => {
+	// Registering Socket.io middleware
+	io.use((socket, next) => {
+		// Exposing a request property to services and hooks
+		socket.feathers.referrer = socket.request.referrer;
+		next();
+	});
+}));
 
 // Configure other middleware (see `middleware/index.js`)
 app.configure(middleware);
+app.configure(authentication);
 // Set up our services (see `services/index.js`)
 app.configure(services);
 // Configure a middleware for 404s and the error handler
@@ -47,21 +61,5 @@ app.use(notFound());
 app.use(handler());
 
 app.hooks(appHooks);
-
-// Watch files in /src/ and update them on change (doesn't restart server).
-if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
-	const chokidar = require('chokidar');
-	const watcher = chokidar.watch('./src');
-
-	watcher.on('ready', () => {
-		info('Watching files in /src/');
-		watcher.on('all', () => {
-			info('Clearing /src/ module cache from server.');
-			Object.keys(require.cache).forEach((id) => {
-				if (/[/\\]src[/\\]/.test(id)) delete require.cache[id];
-			});
-		});
-	});
-}
 
 module.exports = app;

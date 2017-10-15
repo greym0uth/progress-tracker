@@ -1,9 +1,73 @@
 {
-  "host": "localhost",
-  "port": 3030,
-  "public": "../public/",
-  "paginate": {
-    "default": 10,
-    "max": 50
-  }
+	"host": "localhost",
+	"port": 3030,
+	"public": "../public/",
+	"paginate": {
+		"default": 10,
+		"max": 50
+	},
+	"authentication": {
+		"secret": "44c3f069317c171f5c69ec03f3b2d5af1e9decee1d196699b301a485f176c0917bfa920b89623e99e85559463fccb5dac845c7619e3f9618121ac3346356c4918991d98d254737a04b288cc8b0b398cb74f563d19a3965c0f20cfbdb1351e528823c59d07236c7d89194409ac0120db222b86587513863ff03cf89c9ad358dd1113fa2c8729bdd3acc6591ba8a748658b0ac4137441869f14fdd8c0cabbec390926f43550f5beb4f00f9e81b34be586b302943944c719395a61b151b1654a2fb80d051b5857cb8e971f1e62b4e656deaf83b1105feed9aba159b15084669dbbbf9de1f8ca7fd5fe672820e45a7ff5fae43283ba75b2b0f663ef613b2c0b3df70",
+		"strategies": [
+			"jwt",
+			"local"
+		],
+		"path": "/authentication",
+		"service": "users",
+		"jwt": {
+			"header": {
+				"type": "access"
+			},
+			"audience": "https://pt.forester.com",
+			"subject": "anonymous",
+			"issuer": "feathers",
+			"algorithm": "HS256",
+			"expiresIn": "1d"
+		},
+		"local": {
+			"entity": "user",
+			"usernameField": "username",
+			"passwordField": "password"
+		},
+		"google": {
+			"clientID": "877525397776-hcjq3qm13tub4tgeho9ml08eo3l66qu7.apps.googleusercontent.com",
+			"clientSecret": "zgXF0cT4wOKMWK8HTITwnAiU",
+			"successRedirect": "/",
+			"scope": [
+				"profile openid email"
+			]
+		},
+		"facebook": {
+			"clientID": "377230932716743",
+			"clientSecret": "96b69c254e6936cdad44a5f055e1ebd5",
+			"successRedirect": "/",
+			"scope": [
+				"public_profile",
+				"email"
+			],
+			"profileFields": [
+				"id",
+				"displayName",
+				"first_name",
+				"last_name",
+				"email",
+				"gender",
+				"profileUrl",
+				"birthday",
+				"picture",
+				"permissions"
+			]
+		},
+		"cookie": {
+			"enabled": true,
+			"name": "feathers-jwt",
+			"httpOnly": false,
+			"secure": false
+		}
+	},
+	"mongodb": {
+		"uri": "mongodb://104.131.188.45:27017/pt",
+		"user": "admin",
+		"pass": "C7zIIQexQ9Xm"
+	}
 }
