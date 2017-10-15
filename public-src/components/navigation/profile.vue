@@ -40,7 +40,7 @@ export default {
 	},
 	methods: {
 		update: function() {
-			let _this = this;
+			var _this = this;
 
 			auth.validate().then(res => {
 				_this.loggedIn = res;
