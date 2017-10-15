@@ -13,6 +13,17 @@ module.exports = function(app) {
 			type: String
 		},
 
+		email: {
+			type: String,
+			unique: true
+		},
+		firstName: {
+			type: String
+		},
+		lastName: {
+			type: String
+		},
+
 		googleId: {
 			type: String
 		},

@@ -5,14 +5,11 @@ const cors = require('cors');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 
-const {
-	info
-} = require('winston');
-
 const feathers = require('feathers');
 const configuration = require('feathers-configuration');
 const hooks = require('feathers-hooks');
 const rest = require('feathers-rest');
+const socketio = require('feathers-socketio');
 
 const handler = require('feathers-errors/handler');
 const notFound = require('feathers-errors/not-found');
@@ -45,7 +42,14 @@ app.use('/', feathers.static(app.get('public')));
 app.configure(hooks());
 app.configure(mongoose);
 app.configure(rest());
-
+app.configure(socketio({ wsEngine: 'uws' }, io => {
+	// Registering Socket.io middleware
+	io.use((socket, next) => {
+		// Exposing a request property to services and hooks
+		socket.feathers.referrer = socket.request.referrer;
+		next();
+	});
+}));
 
 // Configure other middleware (see `middleware/index.js`)
 app.configure(middleware);

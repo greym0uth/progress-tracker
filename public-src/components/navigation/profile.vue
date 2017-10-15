@@ -3,8 +3,8 @@
 		<v-btn class="white--text" color="primary" icon slot="activator">
 			<v-icon>person</v-icon>
 		</v-btn>
-		<v-list v-if="userId">
-			<v-list-tile @click="">
+		<v-list v-if="loggedIn">
+			<v-list-tile @click="myAccount()">
 				<v-list-tile-title>
 					<v-layout row justify-space-between>
 						<v-flex xs1><v-icon>account_circle</v-icon></v-flex>
@@ -12,7 +12,7 @@
 					</v-layout>
 				</v-list-tile-title>
 			</v-list-tile>
-			<v-list-tile @click="">
+			<v-list-tile @click="logout()">
 				<v-list-tile-title>
 					<v-layout row justify-space-between>
 						<v-flex xs1><v-icon>exit_to_app</v-icon></v-flex>
@@ -22,21 +22,40 @@
 			</v-list-tile>
 		</v-list>
 		<v-list v-else>
-			<login-tile></login-tile>
+			<login-tile @update="update()"></login-tile>
 		</v-list>
 	</v-menu>
 </template>
 
 <script>
-import LoginComponent from './tiles/login.vue';
+import LoginTileComponent from './tiles/login.vue';
+import feathers from '../../states/feathers';
+import auth from '../../utils/auth';
 
 export default {
-	props: ['userId'],
 	data: function() {
-		return {};
+		return {
+			loggedIn: false
+		};
+	},
+	methods: {
+		update: function() {
+			let _this = this;
+
+			auth.validate().then(res => {
+				_this.loggedIn = res;
+			});
+		},
+		myAccount: function() {
+			this.$router.push('profile');
+		},
+		logout: function() {
+			auth.logout();
+			this.update();
+		}
 	},
 	components: {
-		'login-tile': LoginComponent
+		'login-tile': LoginTileComponent
 	}
 };
 </script>
