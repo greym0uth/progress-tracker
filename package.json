@@ -57,7 +57,7 @@
 		"feathers-configuration": "^0.4.1",
 		"feathers-errors": "^2.9.2",
 		"feathers-hooks": "^2.1.0",
-		"feathers-hooks-common": "^3.7.3",
+		"feathers-hooks-common": "^4.6.0",
 		"feathers-rest": "^1.8.0",
 		"helmet": "^3.8.2",
 		"serve-favicon": "^2.4.5",
